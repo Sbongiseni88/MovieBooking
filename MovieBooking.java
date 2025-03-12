@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class MovieBooking {
     public static void main(String[] args) {
@@ -6,18 +6,18 @@ public class MovieBooking {
 
         System.out.println("🎬 Welcome to the Movie Booking System!");
 
-        String[] movies = {"1. Spider-Man: No Way Home", "2. Avatar: The Way of Water", "3. John Wick 4"};
+        String[] movies = {"1. Se7en ", "2. Pulp fiction", "3. The Matrix"};
 
         // Available seats
         String[] seats = {"A1", "A2", "A3", "A4", "A5"};
         boolean[] bookedSeats = {false, false, false, false, false};
 
-        System.out.println("\nAvailable Movies:");
+        System.out.println("Available Movies:");
         for (String movie : movies) {
             System.out.println(movie);
         }
 
-        System.out.print("\nSelect a movie (Enter 1, 2, or 3): ");
+        System.out.print("Select a movie (Enter 1, 2, or 3): ");
         int movieChoice = scanner.nextInt();
 
         if (movieChoice < 1 || movieChoice > movies.length) {
@@ -25,11 +25,11 @@ public class MovieBooking {
             return;
         }
 
-        System.out.println("\n🎟️ You selected: " + movies[movieChoice - 1]);
+        System.out.println("🎟️ You selected: " + movies[movieChoice - 1]);
 
         // Booking loop
         while (true) {
-            System.out.println("\nAvailable Seats:");
+            System.out.println("Available Seats:");
             boolean allBooked = true;
             for (int i = 0; i < seats.length; i++) {
                 if (!bookedSeats[i]) {
@@ -39,11 +39,11 @@ public class MovieBooking {
             }
 
             if (allBooked) {
-                System.out.println("\n❌ All seats are booked! Thank you for using our service.");
+                System.out.println("❌ All seats are booked! Thank you for using our service.");
                 break;
             }
 
-            System.out.print("\n\nEnter seat number (e.g., A1, A2, A3) or type 'exit' to finish: ");
+            System.out.println("Enter seat number (e.g., A1, A2, A3) or type 'exit' to finish: ");
             String seatChoice = scanner.next();
 
             if (seatChoice.equalsIgnoreCase("exit")) {
@@ -59,7 +59,7 @@ public class MovieBooking {
                     } else {
                         bookedSeats[i] = true;
                         seatFound = true;
-                        System.out.println("\n✅ Booking confirmed! You booked " + seats[i] + " for " + movies[movieChoice - 1]);
+                        System.out.println("✅ Booking confirmed! You booked " + seats[i] + " for " + movies[movieChoice - 1]);
                     }
                     break;
                 }
@@ -69,7 +69,8 @@ public class MovieBooking {
                 System.out.println("❌ Invalid seat selection. Please choose from available seats.");
             }
         }
-
         scanner.close();
+
+
     }
 }
